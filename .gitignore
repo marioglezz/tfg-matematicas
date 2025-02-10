@@ -6,9 +6,6 @@ venv/
 *.pyo
 __pycache__/
 
-# Configuraciones específicas de VSCode
-.vscode/
-
 # Archivos de logs
 *.log
 

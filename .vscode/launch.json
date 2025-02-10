@@ -1,0 +1,130 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug NGCF",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/NGCF/NGCF.py",
+            "args": [
+                "--dataset", "movielens_1M",
+                "--regs", "[1e-5]",
+                "--embed_size", "16",
+                "--layer_size", "[16,16,16]",
+                "--lr", "0.0005",
+                "--batch_size", "1024",
+                "--epoch", "200",
+                "--verbose", "50",
+                "--node_dropout", "[0.1]",
+                "--mess_dropout", "[0.1,0.1,0.1]"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "TF_CPP_MIN_LOG_LEVEL": "2" 
+            }
+        },
+        {
+            "name": "Debug MF",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/MF/MF.py",
+            "args": [
+                "--weights_path", "src/MF/",
+                "--data_path", "src/Data/",
+                "--proj_path", "src/MF/",
+                "--dataset", "movielens_1M",
+                "--epoch", "200",
+                "--embed_size", "64",
+                "--batch_size", "1024",
+                "--regs", "[1e-5]",
+                "--lr", "0.0001",
+                "--model_type", "mf",
+                "--node_dropout", "[0]",
+                "--mess_dropout", "[0]"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "TF_CPP_MIN_LOG_LEVEL": "2"
+            }
+        },
+        {
+            "name": "Debug GMF",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/NCF/GMF.py",
+            "args": [
+                "--weights_path", "src/NCF/",
+                "--data_path", "src/Data/",
+                "--proj_path", "src/NCF/",
+                "--dataset", "movielens_1M",
+                "--epoch", "200",
+                "--embed_size", "64",
+                "--batch_size", "1024",
+                "--regs", "[1e-5]",
+                "--lr", "0.0005",
+                "--model_type", "gmf",
+                "--node_dropout", "[0]",
+                "--mess_dropout", "[0]"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "TF_CPP_MIN_LOG_LEVEL": "2"
+            }
+        },
+        {
+            "name": "Debug MLP",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/NCF/MLP.py",
+            "args": [
+                "--weights_path", "src/NCF/",
+                "--data_path", "src/Data/",
+                "--proj_path", "src/NCF/",
+                "--dataset", "movielens_1M",
+                "--epoch", "200",
+                "--embed_size", "64 ",
+                "--layer_size", "[128, 64, 32,16,8]",
+                "--batch_size", "1024",
+                "--regs", "[1e-5]",
+                "--lr", "0.0005",
+                "--model_type", "mlp",
+                "--node_dropout", "[0]",
+                "--mess_dropout", "[0]"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "TF_CPP_MIN_LOG_LEVEL": "2"
+            }
+        },
+        {
+            "name": "Debug NeuMF",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/NCF/NeuMF.py",
+            "args": [
+                "--weights_path", "src/NCF/",
+                "--data_path", "src/Data/",
+                "--proj_path", "src/NCF/",
+                "--dataset", "movielens_1M",
+                "--epoch", "200",
+                "--embed_size", "64",
+                "--layer_size", "[512,256,128,64,32,16]",
+                "--batch_size", "512",
+                "--regs", "[1e-4]",
+                "--lr", "0.001",
+                "--model_type", "neumf",
+                "--node_dropout", "[0]",
+                "--mess_dropout", "[0]"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "TF_CPP_MIN_LOG_LEVEL": "2"
+            }
+        }
+    ]
+}
